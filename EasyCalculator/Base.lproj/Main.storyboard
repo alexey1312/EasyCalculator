@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="EasyCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" minimumScaleFactor="0.20000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="4OC-8r-Ltu">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="105"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="105" id="1Z8-7T-UHq">
+                                        <variation key="heightClass=compact" constant="80"/>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="100"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="utc-dS-BSh">
+                                <rect key="frame" x="0.0" y="96" width="375" height="571"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8a0-Vk-z0q">
+                                        <rect key="frame" x="1" y="1" width="92.5" height="116"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
+                                        <state key="normal" title="C">
+                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonClearPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7uR-Lc-aRq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDV-FK-7Uf">
+                                        <rect key="frame" x="188" y="1" width="92.5" height="116"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
+                                        <state key="normal" title="%">
+                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonPrecentagePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B4a-S0-fEc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SP4-QH-pB5">
+                                        <rect key="frame" x="281.5" y="1" width="92.5" height="116"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
+                                        <state key="normal" title="+">
+                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonEqualityPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o91-g5-oPp"/>
+                                            <action selector="buttonOperandsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Nx-Yj-rex"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RbT-4k-LMA">
+                                        <rect key="frame" x="1" y="118" width="92.5" height="116"/>
+                                        <color key="backgroundColor" red="0.0" green="0.37695571779999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
+                                        <state key="normal" title="7">
+                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonNumberPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7tb-4c-ctK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwA-dQ-1dD">
+                                        <rect key="frame" x="94.5" y="118" width="92.5" height="116"/>
+                                        <color key="backgroundColor" red="0.0" green="0.37695571779999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
+                                        <state key="normal" title="8">
+                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonNumberPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6G5-RG-GU7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWk-MF-21w">
+                                        <rect key="frame" x="188" y="118" width="92.5" height="116"/>
+                                        <color key="backgroundColor" red="0.0" green="0.37695571779999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
+                                        <state key="normal" title="9">
+                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonNumberPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m0H-2k-2fr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSC-bg-bgU">
+                                        <rect key="frame" x="281.5" y="118" width="92.5" height="116"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
+                                        <state key="normal" title="-">
+                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonEqualityPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sGo-d7-j6w"/>
+                                            <action selector="buttonOperandsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="won-sK-5oQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCl-IY-MwR">
+                                        <rect key="frame" x="1" y="235" width="92.5" height="116"/>
+                                        <color key="backgroundColor" red="0.0" green="0.37695571779999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
+                                        <state key="normal" title="4">
+                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonNumberPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iWa-DW-ElF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkI-pa-XfP">
+                                        <rect key="frame" x="94.5" y="235" width="92.5" height="116"/>
+                                        <color key="backgroundColor" red="0.0" green="0.37695571779999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
+                                        <state key="normal" title="5">
+                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonNumberPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jL4-yO-0R9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y8T-I7-WSz">
+                                        <rect key="frame" x="188" y="235" width="92.5" height="116"/>
+                                        <color key="backgroundColor" red="0.0" green="0.37695571779999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
+                                        <state key="normal" title="6">
+                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonNumberPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yu4-aC-wJh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tZ-eO-J3u">
+                                        <rect key="frame" x="281.5" y="235" width="92.5" height="116"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
+                                        <state key="normal" title="×">
+                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonEqualityPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mP9-ov-lIZ"/>
+                                            <action selector="buttonOperandsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lrI-O7-Plh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJi-cL-N9p">
+                                        <rect key="frame" x="1" y="352" width="92.5" height="116"/>
+                                        <color key="backgroundColor" red="0.0" green="0.37695571779999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
+                                        <state key="normal" title="1">
+                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonNumberPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fim-Af-jK9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NLg-rP-KM9">
+                                        <rect key="frame" x="94.5" y="352" width="92.5" height="116"/>
+                                        <color key="backgroundColor" red="0.0" green="0.37695571779999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
+                                        <state key="normal" title="2">
+                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonNumberPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OSD-Kb-GJG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ni-qD-EQo">
+                                        <rect key="frame" x="188" y="352" width="92.5" height="116"/>
+                                        <color key="backgroundColor" red="0.0" green="0.37695571779999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
+                                        <state key="normal" title="3">
+                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonNumberPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="22n-me-12V"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fek-7H-ZD5">
+                                        <rect key="frame" x="281.5" y="352" width="92.5" height="116"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
+                                        <state key="normal" title="÷">
+                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonEqualityPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ouk-4r-u3u"/>
+                                            <action selector="buttonOperandsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cwb-RN-u0v"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uFj-Zc-1F7">
+                                        <rect key="frame" x="94.5" y="469" width="92.5" height="101"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
+                                        <state key="normal" title="0">
+                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonNumberPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aK4-tP-4ea"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VN8-fa-R0Z">
+                                        <rect key="frame" x="188" y="469" width="92.5" height="101"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
+                                        <state key="normal" title=".">
+                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonDotPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GyY-ap-tuI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzS-lu-jY1">
+                                        <rect key="frame" x="281.5" y="469" width="92.5" height="101"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
+                                        <state key="normal" title="=">
+                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonEqualityPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yhp-6m-M1z"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXh-os-1tc">
+                                        <rect key="frame" x="94.5" y="1" width="92.5" height="116"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
+                                        <state key="normal" title="+/-">
+                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonPlusMinusPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c5t-5h-LPa"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gs5-St-IRG">
+                                        <rect key="frame" x="1" y="469" width="92.5" height="101"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
+                                        <state key="normal" title="√">
+                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonSquareRootPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GVT-N8-kOh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <constraints>
+                                    <constraint firstItem="hSC-bg-bgU" firstAttribute="height" secondItem="8a0-Vk-z0q" secondAttribute="height" id="1p1-pR-UAu"/>
+                                    <constraint firstItem="RzS-lu-jY1" firstAttribute="leading" secondItem="VN8-fa-R0Z" secondAttribute="trailing" constant="1" id="1wX-oQ-UHs"/>
+                                    <constraint firstItem="UDV-FK-7Uf" firstAttribute="height" secondItem="8a0-Vk-z0q" secondAttribute="height" id="3bX-gf-7qW"/>
+                                    <constraint firstItem="NLg-rP-KM9" firstAttribute="height" secondItem="8a0-Vk-z0q" secondAttribute="height" id="5HY-ll-ueH"/>
+                                    <constraint firstAttribute="bottom" secondItem="VN8-fa-R0Z" secondAttribute="bottom" constant="1" id="6VJ-cv-k2F">
+                                        <variation key="heightClass=compact" constant="1"/>
+                                        <variation key="heightClass=regular" constant="1"/>
+                                    </constraint>
+                                    <constraint firstItem="ZWk-MF-21w" firstAttribute="leading" secondItem="nwA-dQ-1dD" secondAttribute="trailing" constant="1" id="7Cp-3b-kvt"/>
+                                    <constraint firstItem="6tZ-eO-J3u" firstAttribute="width" secondItem="8a0-Vk-z0q" secondAttribute="width" id="8F3-o0-ivF"/>
+                                    <constraint firstAttribute="bottom" secondItem="gs5-St-IRG" secondAttribute="bottom" constant="1" id="8be-3h-D0W">
+                                        <variation key="heightClass=compact" constant="1"/>
+                                        <variation key="heightClass=regular" constant="1"/>
+                                    </constraint>
+                                    <constraint firstItem="8ni-qD-EQo" firstAttribute="leading" secondItem="NLg-rP-KM9" secondAttribute="trailing" constant="1" id="8eK-Cg-8pg"/>
+                                    <constraint firstItem="uFj-Zc-1F7" firstAttribute="top" secondItem="NLg-rP-KM9" secondAttribute="bottom" constant="1" id="8w7-Po-DdZ"/>
+                                    <constraint firstItem="pkI-pa-XfP" firstAttribute="height" secondItem="8a0-Vk-z0q" secondAttribute="height" id="99e-EI-G8f"/>
+                                    <constraint firstItem="RzS-lu-jY1" firstAttribute="width" secondItem="8a0-Vk-z0q" secondAttribute="width" id="CdJ-Fq-384"/>
+                                    <constraint firstItem="uFj-Zc-1F7" firstAttribute="leading" secondItem="gs5-St-IRG" secondAttribute="trailing" constant="1" id="DOb-Ok-dQW"/>
+                                    <constraint firstItem="8ni-qD-EQo" firstAttribute="width" secondItem="8a0-Vk-z0q" secondAttribute="width" id="DeO-D6-Ujd"/>
+                                    <constraint firstItem="vJi-cL-N9p" firstAttribute="leading" secondItem="utc-dS-BSh" secondAttribute="leading" constant="1" id="Eiz-fD-zDd"/>
+                                    <constraint firstItem="pkI-pa-XfP" firstAttribute="width" secondItem="8a0-Vk-z0q" secondAttribute="width" id="Esb-18-qCb"/>
+                                    <constraint firstItem="fek-7H-ZD5" firstAttribute="height" secondItem="8a0-Vk-z0q" secondAttribute="height" id="GGn-Hk-Iko"/>
+                                    <constraint firstAttribute="trailing" secondItem="6tZ-eO-J3u" secondAttribute="trailing" constant="1" id="GbX-Oy-nTf"/>
+                                    <constraint firstItem="uFj-Zc-1F7" firstAttribute="height" secondItem="8a0-Vk-z0q" secondAttribute="height" id="Hck-Z4-AJ5">
+                                        <variation key="heightClass=compact" constant="7"/>
+                                        <variation key="heightClass=regular" constant="-15"/>
+                                    </constraint>
+                                    <constraint firstItem="uFj-Zc-1F7" firstAttribute="width" secondItem="8a0-Vk-z0q" secondAttribute="width" id="JQy-ID-fZt"/>
+                                    <constraint firstItem="UDV-FK-7Uf" firstAttribute="leading" secondItem="kXh-os-1tc" secondAttribute="trailing" constant="1" id="KBP-dF-bjb"/>
+                                    <constraint firstItem="kXh-os-1tc" firstAttribute="top" secondItem="utc-dS-BSh" secondAttribute="top" constant="1" id="KmG-Of-Lym"/>
+                                    <constraint firstItem="nwA-dQ-1dD" firstAttribute="height" secondItem="8a0-Vk-z0q" secondAttribute="height" id="KpT-XH-ftu"/>
+                                    <constraint firstItem="NLg-rP-KM9" firstAttribute="leading" secondItem="vJi-cL-N9p" secondAttribute="trailing" constant="1" id="OMh-nY-Rmi"/>
+                                    <constraint firstItem="6tZ-eO-J3u" firstAttribute="height" secondItem="8a0-Vk-z0q" secondAttribute="height" id="Oax-BM-oiL"/>
+                                    <constraint firstItem="VN8-fa-R0Z" firstAttribute="height" secondItem="8a0-Vk-z0q" secondAttribute="height" id="OqW-VI-VnQ">
+                                        <variation key="heightClass=compact" constant="7"/>
+                                        <variation key="heightClass=regular" constant="-15"/>
+                                    </constraint>
+                                    <constraint firstAttribute="trailing" secondItem="fek-7H-ZD5" secondAttribute="trailing" constant="1" id="Oqq-U7-feX"/>
+                                    <constraint firstItem="fek-7H-ZD5" firstAttribute="top" secondItem="6tZ-eO-J3u" secondAttribute="bottom" constant="1" id="PhK-Eg-eLb"/>
+                                    <constraint firstItem="RzS-lu-jY1" firstAttribute="top" secondItem="fek-7H-ZD5" secondAttribute="bottom" constant="1" id="PrP-Jg-KLz"/>
+                                    <constraint firstItem="NLg-rP-KM9" firstAttribute="width" secondItem="8a0-Vk-z0q" secondAttribute="width" id="Q32-6F-qms"/>
+                                    <constraint firstItem="pkI-pa-XfP" firstAttribute="leading" secondItem="eCl-IY-MwR" secondAttribute="trailing" constant="1" id="QIp-yE-x9Z"/>
+                                    <constraint firstItem="8ni-qD-EQo" firstAttribute="top" secondItem="y8T-I7-WSz" secondAttribute="bottom" constant="1" id="QUS-pr-nOc"/>
+                                    <constraint firstItem="8a0-Vk-z0q" firstAttribute="leading" secondItem="utc-dS-BSh" secondAttribute="leading" constant="1" id="Qjz-9z-A1t"/>
+                                    <constraint firstItem="nwA-dQ-1dD" firstAttribute="leading" secondItem="RbT-4k-LMA" secondAttribute="trailing" constant="1" id="Ryt-LV-PjQ"/>
+                                    <constraint firstItem="y8T-I7-WSz" firstAttribute="width" secondItem="8a0-Vk-z0q" secondAttribute="width" id="V2F-e2-sU6"/>
+                                    <constraint firstItem="RbT-4k-LMA" firstAttribute="width" secondItem="8a0-Vk-z0q" secondAttribute="width" id="V5v-QX-fR0"/>
+                                    <constraint firstItem="nwA-dQ-1dD" firstAttribute="width" secondItem="8a0-Vk-z0q" secondAttribute="width" id="VEe-VG-LS2"/>
+                                    <constraint firstItem="hSC-bg-bgU" firstAttribute="leading" secondItem="ZWk-MF-21w" secondAttribute="trailing" constant="1" id="Vkm-5N-fBY"/>
+                                    <constraint firstItem="eCl-IY-MwR" firstAttribute="top" secondItem="RbT-4k-LMA" secondAttribute="bottom" constant="1" id="WFw-M4-PZc"/>
+                                    <constraint firstItem="eCl-IY-MwR" firstAttribute="height" secondItem="8a0-Vk-z0q" secondAttribute="height" id="Wa9-Xd-MrB"/>
+                                    <constraint firstItem="8a0-Vk-z0q" firstAttribute="top" secondItem="utc-dS-BSh" secondAttribute="top" constant="1" id="Waq-y3-vms"/>
+                                    <constraint firstItem="y8T-I7-WSz" firstAttribute="leading" secondItem="pkI-pa-XfP" secondAttribute="trailing" constant="1" id="WoC-Hl-7Pt"/>
+                                    <constraint firstItem="kXh-os-1tc" firstAttribute="leading" secondItem="8a0-Vk-z0q" secondAttribute="trailing" constant="1" id="WqG-W9-Guc"/>
+                                    <constraint firstItem="NLg-rP-KM9" firstAttribute="top" secondItem="pkI-pa-XfP" secondAttribute="bottom" constant="1" id="YPg-2N-6fo"/>
+                                    <constraint firstItem="RbT-4k-LMA" firstAttribute="top" secondItem="8a0-Vk-z0q" secondAttribute="bottom" constant="1" id="ZZv-Ce-vLU"/>
+                                    <constraint firstItem="RbT-4k-LMA" firstAttribute="leading" secondItem="utc-dS-BSh" secondAttribute="leading" constant="1" id="ZbU-cN-yEV"/>
+                                    <constraint firstItem="kXh-os-1tc" firstAttribute="width" secondItem="8a0-Vk-z0q" secondAttribute="width" id="aKK-2c-c8x"/>
+                                    <constraint firstItem="fek-7H-ZD5" firstAttribute="leading" secondItem="8ni-qD-EQo" secondAttribute="trailing" constant="1" id="aRl-mt-Sro"/>
+                                    <constraint firstItem="SP4-QH-pB5" firstAttribute="top" secondItem="utc-dS-BSh" secondAttribute="top" constant="1" id="af8-SK-Gbb"/>
+                                    <constraint firstItem="RbT-4k-LMA" firstAttribute="height" secondItem="8a0-Vk-z0q" secondAttribute="height" id="ag3-vC-G4u"/>
+                                    <constraint firstAttribute="bottom" secondItem="uFj-Zc-1F7" secondAttribute="bottom" constant="1" id="bNh-x1-iqZ">
+                                        <variation key="heightClass=compact" constant="1"/>
+                                        <variation key="heightClass=regular" constant="1"/>
+                                    </constraint>
+                                    <constraint firstAttribute="trailing" secondItem="SP4-QH-pB5" secondAttribute="trailing" constant="1" id="coE-No-Lz2"/>
+                                    <constraint firstItem="gs5-St-IRG" firstAttribute="width" secondItem="8a0-Vk-z0q" secondAttribute="width" id="cv5-xx-Wvq"/>
+                                    <constraint firstItem="VN8-fa-R0Z" firstAttribute="leading" secondItem="uFj-Zc-1F7" secondAttribute="trailing" constant="1" id="cyg-Yg-LKz"/>
+                                    <constraint firstItem="nwA-dQ-1dD" firstAttribute="top" secondItem="kXh-os-1tc" secondAttribute="bottom" constant="1" id="eR9-Jg-DhH"/>
+                                    <constraint firstItem="vJi-cL-N9p" firstAttribute="top" secondItem="eCl-IY-MwR" secondAttribute="bottom" constant="1" id="eU8-2r-Chj"/>
+                                    <constraint firstItem="VN8-fa-R0Z" firstAttribute="width" secondItem="8a0-Vk-z0q" secondAttribute="width" id="eV5-HX-ZHi"/>
+                                    <constraint firstItem="y8T-I7-WSz" firstAttribute="top" secondItem="ZWk-MF-21w" secondAttribute="bottom" constant="1" id="eX4-9h-G5I"/>
+                                    <constraint firstItem="kXh-os-1tc" firstAttribute="height" secondItem="8a0-Vk-z0q" secondAttribute="height" id="fFy-oU-JMS"/>
+                                    <constraint firstItem="VN8-fa-R0Z" firstAttribute="top" secondItem="8ni-qD-EQo" secondAttribute="bottom" constant="1" id="fUP-Bq-908"/>
+                                    <constraint firstAttribute="trailing" secondItem="RzS-lu-jY1" secondAttribute="trailing" constant="1" id="fsJ-0W-jOk"/>
+                                    <constraint firstItem="hSC-bg-bgU" firstAttribute="top" secondItem="SP4-QH-pB5" secondAttribute="bottom" constant="1" id="fzJ-yR-Uvr"/>
+                                    <constraint firstAttribute="trailing" secondItem="hSC-bg-bgU" secondAttribute="trailing" constant="1" id="gUu-Ug-q3p"/>
+                                    <constraint firstItem="y8T-I7-WSz" firstAttribute="height" secondItem="8a0-Vk-z0q" secondAttribute="height" id="ir9-AX-DEM"/>
+                                    <constraint firstItem="UDV-FK-7Uf" firstAttribute="top" secondItem="utc-dS-BSh" secondAttribute="top" constant="1" id="jVE-oC-Jyq"/>
+                                    <constraint firstItem="vJi-cL-N9p" firstAttribute="width" secondItem="8a0-Vk-z0q" secondAttribute="width" id="l5F-Yz-dMj"/>
+                                    <constraint firstItem="eCl-IY-MwR" firstAttribute="width" secondItem="8a0-Vk-z0q" secondAttribute="width" id="lBN-bs-Q6F"/>
+                                    <constraint firstItem="eCl-IY-MwR" firstAttribute="leading" secondItem="utc-dS-BSh" secondAttribute="leading" constant="1" id="nmG-nx-JEu"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="RzS-lu-jY1" secondAttribute="bottom" constant="1" id="ntw-92-mAi">
+                                        <variation key="heightClass=compact" constant="-14"/>
+                                        <variation key="heightClass=regular" constant="-14"/>
+                                    </constraint>
+                                    <constraint firstItem="SP4-QH-pB5" firstAttribute="leading" secondItem="UDV-FK-7Uf" secondAttribute="trailing" constant="1" id="oJ8-Kz-bgu"/>
+                                    <constraint firstItem="SP4-QH-pB5" firstAttribute="width" secondItem="8a0-Vk-z0q" secondAttribute="width" id="oXK-Ee-F1t"/>
+                                    <constraint firstItem="hSC-bg-bgU" firstAttribute="width" secondItem="8a0-Vk-z0q" secondAttribute="width" id="pfk-FJ-eJS"/>
+                                    <constraint firstItem="vJi-cL-N9p" firstAttribute="height" secondItem="8a0-Vk-z0q" secondAttribute="height" id="qCQ-OK-kVW"/>
+                                    <constraint firstItem="ZWk-MF-21w" firstAttribute="width" secondItem="8a0-Vk-z0q" secondAttribute="width" id="qtb-3g-J30"/>
+                                    <constraint firstItem="gs5-St-IRG" firstAttribute="leading" secondItem="utc-dS-BSh" secondAttribute="leading" constant="1" id="rEd-c0-Yo9"/>
+                                    <constraint firstItem="UDV-FK-7Uf" firstAttribute="width" secondItem="8a0-Vk-z0q" secondAttribute="width" id="rq7-lu-chS"/>
+                                    <constraint firstItem="RzS-lu-jY1" firstAttribute="height" secondItem="8a0-Vk-z0q" secondAttribute="height" id="stc-gR-vG6">
+                                        <variation key="heightClass=compact" constant="7"/>
+                                        <variation key="heightClass=regular" constant="-15"/>
+                                    </constraint>
+                                    <constraint firstItem="ZWk-MF-21w" firstAttribute="height" secondItem="8a0-Vk-z0q" secondAttribute="height" id="uoW-ZB-wz2"/>
+                                    <constraint firstItem="6tZ-eO-J3u" firstAttribute="leading" secondItem="y8T-I7-WSz" secondAttribute="trailing" constant="1" id="v5f-hR-sBw"/>
+                                    <constraint firstItem="ZWk-MF-21w" firstAttribute="top" secondItem="UDV-FK-7Uf" secondAttribute="bottom" constant="1" id="vP8-NB-AgJ"/>
+                                    <constraint firstItem="fek-7H-ZD5" firstAttribute="width" secondItem="8a0-Vk-z0q" secondAttribute="width" id="vSR-y0-hBG"/>
+                                    <constraint firstItem="SP4-QH-pB5" firstAttribute="height" secondItem="8a0-Vk-z0q" secondAttribute="height" id="vdE-bf-my4"/>
+                                    <constraint firstItem="6tZ-eO-J3u" firstAttribute="top" secondItem="hSC-bg-bgU" secondAttribute="bottom" constant="1" id="wtA-O9-0pN"/>
+                                    <constraint firstItem="pkI-pa-XfP" firstAttribute="top" secondItem="nwA-dQ-1dD" secondAttribute="bottom" constant="1" id="x9e-ur-7H3"/>
+                                    <constraint firstItem="gs5-St-IRG" firstAttribute="height" secondItem="8a0-Vk-z0q" secondAttribute="height" id="zfc-3T-ZFo">
+                                        <variation key="heightClass=compact" constant="7"/>
+                                        <variation key="heightClass=regular" constant="-15"/>
+                                    </constraint>
+                                    <constraint firstItem="gs5-St-IRG" firstAttribute="top" secondItem="vJi-cL-N9p" secondAttribute="bottom" constant="1" id="zlG-O6-AEi"/>
+                                    <constraint firstItem="8ni-qD-EQo" firstAttribute="height" secondItem="8a0-Vk-z0q" secondAttribute="height" id="zqv-yV-ADO"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="utc-dS-BSh" secondAttribute="trailing" id="2DP-DJ-Fkr"/>
+                            <constraint firstItem="utc-dS-BSh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KIn-cU-lgX"/>
+                            <constraint firstItem="utc-dS-BSh" firstAttribute="top" secondItem="4OC-8r-Ltu" secondAttribute="bottom" constant="10" id="Nxc-oG-i7N">
+                                <variation key="heightClass=compact" constant="2"/>
+                                <variation key="heightClass=regular" constant="-9"/>
+                            </constraint>
+                            <constraint firstItem="4OC-8r-Ltu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="W3Z-zP-AlK"/>
+                            <constraint firstItem="4OC-8r-Ltu" firstAttribute="trailing" secondItem="utc-dS-BSh" secondAttribute="trailing" id="Wom-t0-e5n"/>
+                            <constraint firstItem="utc-dS-BSh" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="bpL-45-5db">
+                                <variation key="heightClass=compact" constant="0.0"/>
+                                <variation key="heightClass=regular" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="4OC-8r-Ltu" firstAttribute="leading" secondItem="utc-dS-BSh" secondAttribute="leading" id="hF5-Ky-pKW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="labelResultDisplay" destination="4OC-8r-Ltu" id="xFY-jZ-WnI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="134.48275862068968" y="135.19999999999999"/>
+        </scene>
+    </scenes>
+</document>
