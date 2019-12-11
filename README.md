@@ -1,2 +1,3 @@
-# EasyCalculator
-EasyCalculator😂
+# 🧮 EasyCalculator
+
+Simple Calculator.
