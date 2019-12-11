@@ -118,7 +118,7 @@ class ViewController: UIViewController {
     
     @IBAction func buttonPrecentagePressed(_ sender: UIButton) {
         if firstOperand == 0 {
-            currentInput = currentInput / 100
+            currentInput /= 100
             UserDefaults.standard.setСurrentInput(value: String(currentInput))
             print(UserDefaults.standard.isCurrentInput())
         } else {
@@ -159,17 +159,17 @@ class ViewController: UIViewController {
 
 extension UserDefaults {
     
-    //MARK: Save
+    // MARK: Save
     func setСurrentInput(value: String) {
         set(value, forKey: "currentInput")
     }
     
-    //MARK: Load
-    func isCurrentInput()-> Double {
+    // MARK: Load
+    func isCurrentInput() -> Double {
         return double(forKey: "currentInput")
     }
     
-    //MARK: Remove
+    // MARK: Remove
     func removeCurrentInput() {
         removeObject(forKey: "currentInput")
     }
