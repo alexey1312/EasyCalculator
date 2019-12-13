@@ -2,4 +2,4 @@
 
 Simple Calculator for iOS.
 
-![EasyCalculator](https://github.com/alexey1312/EasyCalculator/blob/master/EasyCalculator.png =600x800)
+<img src="https://github.com/alexey1312/EasyCalculator/blob/master/EasyCalculator.png" width="600" height="800">
