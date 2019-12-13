@@ -1,3 +1,3 @@
 # 🧮 EasyCalculator
 
-Simple Calculator.
+Simple Calculator for iOS.
