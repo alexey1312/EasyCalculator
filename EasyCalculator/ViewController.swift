@@ -10,13 +10,18 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var stillTyping = false
-    var dotIsPlace = false
-    var firstOperand: Double = 0
-    var secondOperand: Double = 0
-    var operationSign: String = ""
+    // MARK: - IBOutlets
     
-    var currentInput: Double {
+    @IBOutlet weak var labelResultDisplay: UILabel!
+    
+    // MARK: - Private Properties
+    
+    private var stillTyping = false
+    private var dotIsPlace = false
+    private var firstOperand: Double = 0
+    private var secondOperand: Double = 0
+    private var operationSign: String = ""
+    private var currentInput: Double {
         get {
             return Double(labelResultDisplay.text!)!
         } set {
@@ -33,57 +38,72 @@ class ViewController: UIViewController {
         }
     }
     
-    //edit status Bar
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+    // MARK: - Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        var preferredStatusBarStyle: UIStatusBarStyle {
+            return .lightContent
+        }
+        currentInput = UserDefaults.standard.isCurrentInput() //load UserdDefaults value
     }
     
-    @IBOutlet weak var labelResultDisplay: UILabel!
+    // MARK: - Private Methods
     
-    @IBAction func buttonNumberPressed(_ sender: UIButton) {
-        
-        let number = sender.currentTitle!
-        
-        //character limit
-        if stillTyping {
-            if labelResultDisplay.text!.count < 20 {
-                labelResultDisplay.text! += number
-                UserDefaults.standard.setСurrentInput(value: labelResultDisplay.text!)
-                print(UserDefaults.standard.isCurrentInput())
-            }
+    private func clearFunc() {
+        firstOperand = 0
+        secondOperand = 0
+        currentInput = 0
+        labelResultDisplay.text = "0"
+        stillTyping = false
+        dotIsPlace = false
+        operationSign = ""
+        UserDefaults.standard.removeCurrentInput()
+    }
+    
+    private func invertFunc() {
+        currentInput = -currentInput
+        UserDefaults.standard.setСurrentInput(value: String(currentInput))
+    }
+    
+    private func percentFunc() {
+        if firstOperand == 0 {
+            currentInput /= 100
+            UserDefaults.standard.setСurrentInput(value: String(currentInput))
         } else {
-            labelResultDisplay.text! = number
-            stillTyping = true
-            UserDefaults.standard.setСurrentInput(value: labelResultDisplay.text!)
-            print(UserDefaults.standard.isCurrentInput())
+            secondOperand = firstOperand * currentInput / 100
+            UserDefaults.standard.setСurrentInput(value: String(currentInput))
         }
     }
     
-    @IBAction func buttonOperandsPressed(_ sender: UIButton) {
-        
-        operationSign = sender.currentTitle!
-        firstOperand = currentInput
-        stillTyping = false
-        dotIsPlace = false
-        UserDefaults.standard.setСurrentInput(value: String(firstOperand))
-        print(UserDefaults.standard.isCurrentInput())
+    private func squareRootFunc() {
+        currentInput = sqrt(currentInput)
+        UserDefaults.standard.setСurrentInput(value: String(currentInput))
     }
     
-    @IBAction func buttonEqualityPressed(_ sender: UIButton) {
-        
+    private func addDotFunc() {
+        if stillTyping && !dotIsPlace {
+            dotIsPlace = true
+            labelResultDisplay.text = labelResultDisplay.text! + "."
+            UserDefaults.standard.setСurrentInput(value: labelResultDisplay.text!)
+        } else if !stillTyping && !dotIsPlace {
+            dotIsPlace = true
+            labelResultDisplay.text = "0."
+            stillTyping = true
+            UserDefaults.standard.setСurrentInput(value: labelResultDisplay.text!)
+        }
+    }
+    
+    private func equalFunc() {
         if stillTyping == true {
             secondOperand = currentInput
         }
-        
         func operateWithTwoOperands(operation: (Double, Double) -> Double) {
             currentInput = operation(firstOperand, secondOperand)
             stillTyping = false
             UserDefaults.standard.setСurrentInput(value: String(currentInput))
-            print(UserDefaults.standard.isCurrentInput())
         }
-        
         dotIsPlace = false
-        
         switch operationSign {
         case "+":
             operateWithTwoOperands {$0 + $1}
@@ -95,81 +115,77 @@ class ViewController: UIViewController {
             operateWithTwoOperands {$0 / $1}
         default: break
         }
-        print(UserDefaults.standard.isCurrentInput())
+    }
+    
+    private func getPressedOperataion() {
+        firstOperand = currentInput
+        stillTyping = false
+        dotIsPlace = false
+        UserDefaults.standard.setСurrentInput(value: String(firstOperand))
+    }
+    
+    private func getPressedNumber(_ number: String) {
+        if stillTyping { //character limit
+            if labelResultDisplay.text!.count < 20 {
+                labelResultDisplay.text! += number
+                UserDefaults.standard.setСurrentInput(value: labelResultDisplay.text!)
+            }
+        } else {
+            labelResultDisplay.text! = number
+            stillTyping = true
+            UserDefaults.standard.setСurrentInput(value: labelResultDisplay.text!)
+        }
+    }
+    
+    // MARK: - IBActions
+    
+    @IBAction func buttonNumberPressed(_ sender: UIButton) {
+        let number = sender.currentTitle! //get the current value numbers
+        getPressedNumber(number)
+    }
+    
+    @IBAction func buttonOperandsPressed(_ sender: UIButton) {
+        operationSign = sender.currentTitle! //get the current value operation
+        getPressedOperataion()
+    }
+    
+    @IBAction func buttonEqualityPressed(_ sender: UIButton) {
+        equalFunc()
     }
     
     @IBAction func buttonClearPressed(_ sender: UIButton) {
-        firstOperand = 0
-        secondOperand = 0
-        currentInput = 0
-        labelResultDisplay.text = "0"
-        stillTyping = false
-        dotIsPlace = false
-        operationSign = ""
-        UserDefaults.standard.removeCurrentInput()
-        print(UserDefaults.standard.isCurrentInput())
+        clearFunc()
     }
     
     @IBAction func buttonPlusMinusPressed(_ sender: UIButton) {
-        currentInput = -currentInput
-        UserDefaults.standard.setСurrentInput(value: String(currentInput))
-        print(UserDefaults.standard.isCurrentInput())
+        invertFunc()
     }
     
-    @IBAction func buttonPrecentagePressed(_ sender: UIButton) {
-        if firstOperand == 0 {
-            currentInput /= 100
-            UserDefaults.standard.setСurrentInput(value: String(currentInput))
-            print(UserDefaults.standard.isCurrentInput())
-        } else {
-            secondOperand = firstOperand * currentInput / 100
-            UserDefaults.standard.setСurrentInput(value: String(currentInput))
-            print(UserDefaults.standard.isCurrentInput())
-        }
+    @IBAction func buttonPercentPressed(_ sender: UIButton) {
+        percentFunc()
     }
     
     @IBAction func buttonSquareRootPressed(_ sender: UIButton) {
-        currentInput = sqrt(currentInput)
-        UserDefaults.standard.setСurrentInput(value: String(currentInput))
-        print(UserDefaults.standard.isCurrentInput())
+        squareRootFunc()
     }
     
     @IBAction func buttonDotPressed(_ sender: UIButton) {
-        if stillTyping && !dotIsPlace {
-            dotIsPlace = true
-            labelResultDisplay.text = labelResultDisplay.text! + "."
-            UserDefaults.standard.setСurrentInput(value: labelResultDisplay.text!)
-            print(UserDefaults.standard.isCurrentInput())
-        } else if !stillTyping && !dotIsPlace {
-            dotIsPlace = true
-            labelResultDisplay.text = "0."
-            stillTyping = true
-            UserDefaults.standard.setСurrentInput(value: labelResultDisplay.text!)
-            print(UserDefaults.standard.isCurrentInput())
-        }
+        addDotFunc()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // load UserdDefaults value
-        currentInput = UserDefaults.standard.isCurrentInput()
-        print(UserDefaults.standard.isCurrentInput())
-    }
 }
 
+//MARK: Extentions UserDefaults
+
 extension UserDefaults {
-    
-    // MARK: Save
     func setСurrentInput(value: String) {
         set(value, forKey: "currentInput")
     }
     
-    // MARK: Load
     func isCurrentInput() -> Double {
         return double(forKey: "currentInput")
     }
     
-    // MARK: Remove
     func removeCurrentInput() {
         removeObject(forKey: "currentInput")
     }
