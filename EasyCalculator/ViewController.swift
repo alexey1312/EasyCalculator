@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var labelResultDisplay: UILabel!
     
     // MARK: - Private Properties
-    
+    private let viewIdentifier = "mainView"
     private var stillTyping = false
     private var dotIsPlace = false
     private var firstOperand: Double = 0
@@ -42,14 +42,17 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var preferredStatusBarStyle: UIStatusBarStyle {
-            return .lightContent
-        }
-        currentInput = UserDefaults.standard.isCurrentInput() //load UserdDefaults value
+
+        view.accessibilityIdentifier = viewIdentifier
+        loadCurrentInput()
     }
     
     // MARK: - Private Methods
     
+    private func loadCurrentInput() {
+        currentInput = UserDefaults.standard.isCurrentInput() //load UserdDefaults value
+    }
+
     private func clearFunc() {
         firstOperand = 0
         secondOperand = 0
@@ -60,12 +63,12 @@ class ViewController: UIViewController {
         operationSign = ""
         UserDefaults.standard.removeCurrentInput()
     }
-    
+
     private func invertFunc() {
         currentInput = -currentInput
         UserDefaults.standard.setСurrentInput(value: String(currentInput))
     }
-    
+
     private func percentFunc() {
         if firstOperand == 0 {
             currentInput /= 100
@@ -75,12 +78,12 @@ class ViewController: UIViewController {
             UserDefaults.standard.setСurrentInput(value: String(currentInput))
         }
     }
-    
+
     private func squareRootFunc() {
         currentInput = sqrt(currentInput)
         UserDefaults.standard.setСurrentInput(value: String(currentInput))
     }
-    
+
     private func addDotFunc() {
         if stillTyping && !dotIsPlace {
             dotIsPlace = true
@@ -93,7 +96,7 @@ class ViewController: UIViewController {
             UserDefaults.standard.setСurrentInput(value: labelResultDisplay.text!)
         }
     }
-    
+
     private func equalFunc() {
         if stillTyping == true {
             secondOperand = currentInput
@@ -116,14 +119,14 @@ class ViewController: UIViewController {
         default: break
         }
     }
-    
+
     private func getPressedOperataion() {
         firstOperand = currentInput
         stillTyping = false
         dotIsPlace = false
         UserDefaults.standard.setСurrentInput(value: String(firstOperand))
     }
-    
+
     private func getPressedNumber(_ number: String) {
         if stillTyping { //character limit
             if labelResultDisplay.text!.count < 20 {
@@ -136,7 +139,7 @@ class ViewController: UIViewController {
             UserDefaults.standard.setСurrentInput(value: labelResultDisplay.text!)
         }
     }
-    
+
     // MARK: - IBActions
     
     @IBAction func buttonNumberPressed(_ sender: UIButton) {

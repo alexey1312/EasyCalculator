@@ -13,10 +13,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        #if DEBUG
+        if CommandLine.arguments.contains("enable-testing") {
+            configureTestingState()
+        }
+        #endif
+        
         return true
     }
-
-    // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication,
                      configurationForConnecting connectingSceneSession: UISceneSession,
@@ -28,4 +32,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
     }
+
+    // MARK: - Private Methods
+
+    private func configureTestingState() {
+        print(configureTestingState)
+    }
+
 }
