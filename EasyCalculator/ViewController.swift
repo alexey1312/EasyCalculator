@@ -14,18 +14,14 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var labelResultDisplay: UILabel?
     
-    // MARK: - Public Properties
-    
-    let viewIdentifier = "mainView"
-    
     // MARK: - Private Properties
-    
-    var stillTyping = false
-    var dotIsPlace = false
-    var firstOperand: Double = 0
-    var secondOperand: Double = 0
-    var operationSign: String = ""
-    var currentInput: Double {
+    private let viewIdentifier = "mainView"
+    private(set) var stillTyping = false
+    private(set) var dotIsPlace = false
+    private(set) var firstOperand: Double = 0
+    private(set) var secondOperand: Double = 0
+    private(set) var operationSign: String = ""
+    private(set) var currentInput: Double {
         get {
             return Double(labelResultDisplay?.text ?? "0")!
         }
@@ -81,25 +77,21 @@ class ViewController: UIViewController {
     
     func invertFunc() {
         currentInput = -currentInput
-        //        UserDefaults.standard.setСurrentInput(value: String(currentInput))
     }
     
-    private func percentFunc() {
+    func percentFunc() {
         if firstOperand == 0 {
             currentInput /= 100
-            //            UserDefaults.standard.setСurrentInput(value: String(currentInput))
         } else {
             secondOperand = firstOperand * currentInput / 100
-            //            UserDefaults.standard.setСurrentInput(value: String(currentInput))
         }
     }
     
-    private func squareRootFunc() {
+    func squareRootFunc() {
         currentInput = sqrt(currentInput)
-        //        UserDefaults.standard.setСurrentInput(value: String(currentInput))
     }
     
-    private func addDotFunc() {
+    func addDotFunc() {
         if stillTyping && !dotIsPlace {
             dotIsPlace = true
             labelResultDisplay?.text = (labelResultDisplay?.text ?? "0") + "."
@@ -110,14 +102,13 @@ class ViewController: UIViewController {
         }
     }
     
-    private func equalFunc() {
+    func equalFunc() {
         if stillTyping == true {
             secondOperand = currentInput
         }
         func operateWithTwoOperands(operation: (Double, Double) -> Double) {
             currentInput = operation(firstOperand, secondOperand)
             stillTyping = false
-            //            UserDefaults.standard.setСurrentInput(value: String(currentInput))
         }
         dotIsPlace = false
         switch operationSign {
@@ -139,19 +130,16 @@ class ViewController: UIViewController {
         firstOperand = currentInput
         stillTyping = false
         dotIsPlace = false
-        //        UserDefaults.standard.setСurrentInput(value: String(firstOperand))
     }
     
     private func getPressedNumber(_ number: String) {
         if stillTyping { //character limit
             if labelResultDisplay?.text!.count ?? 0 < 20 {
                 labelResultDisplay?.text! += number
-                //                UserDefaults.standard.setСurrentInput(value: labelResultDisplay.text!)
             }
         } else {
             labelResultDisplay?.text! = number
             stillTyping = true
-            //            UserDefaults.standard.setСurrentInput(value: labelResultDisplay.text!)
         }
     }
     
