@@ -12,26 +12,30 @@ class ViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var labelResultDisplay: UILabel!
+    @IBOutlet weak var labelResultDisplay: UILabel?
+    
+    // MARK: - Public Properties
+    
+    let viewIdentifier = "mainView"
     
     // MARK: - Private Properties
-    private let viewIdentifier = "mainView"
-    private var stillTyping = false
-    private var dotIsPlace = false
-    private var firstOperand: Double = 0
-    private var secondOperand: Double = 0
-    private var operationSign: String = ""
-    private var currentInput: Double {
+    
+    var stillTyping = false
+    var dotIsPlace = false
+    var firstOperand: Double = 0
+    var secondOperand: Double = 0
+    var operationSign: String = ""
+    var currentInput: Double {
         get {
-            return Double(labelResultDisplay.text!)!
-        } set {
+            return Double(labelResultDisplay?.text ?? "0")!
+        }
+        set {
             let value = "\(newValue)"
             let valueArray = value.components(separatedBy: ".")
-            
             if valueArray[1] == "0" {
-                labelResultDisplay.text = "\(valueArray[0])"
+                labelResultDisplay?.text = "\(valueArray[0])"
             } else {
-                labelResultDisplay.text = "\(newValue)"
+                labelResultDisplay?.text = "\(newValue)"
                 dotIsPlace = true
             }
             stillTyping = false
@@ -42,61 +46,70 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.accessibilityIdentifier = viewIdentifier
-        loadCurrentInput()
+        loadUserDefaultsData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        saveUserDefaultsData()
     }
     
     // MARK: - Private Methods
     
-    private func loadCurrentInput() {
-        currentInput = UserDefaults.standard.isCurrentInput() //load UserdDefaults value
+    private func loadUserDefaultsData() {
+        currentInput = UserDefaults.standard.isCurrentInput()
     }
-
-    private func clearFunc() {
+    
+    private func saveUserDefaultsData() {
+        UserDefaults.standard.setСurrentInput(value: String(currentInput))
+    }
+    
+    private func removeUserDefaultsData() {
+        UserDefaults.standard.removeCurrentInput()
+    }
+    
+    func clearFunc() {
         firstOperand = 0
         secondOperand = 0
         currentInput = 0
-        labelResultDisplay.text = "0"
         stillTyping = false
         dotIsPlace = false
         operationSign = ""
-        UserDefaults.standard.removeCurrentInput()
+        removeUserDefaultsData()
     }
-
-    private func invertFunc() {
+    
+    func invertFunc() {
         currentInput = -currentInput
-        UserDefaults.standard.setСurrentInput(value: String(currentInput))
+        //        UserDefaults.standard.setСurrentInput(value: String(currentInput))
     }
-
+    
     private func percentFunc() {
         if firstOperand == 0 {
             currentInput /= 100
-            UserDefaults.standard.setСurrentInput(value: String(currentInput))
+            //            UserDefaults.standard.setСurrentInput(value: String(currentInput))
         } else {
             secondOperand = firstOperand * currentInput / 100
-            UserDefaults.standard.setСurrentInput(value: String(currentInput))
+            //            UserDefaults.standard.setСurrentInput(value: String(currentInput))
         }
     }
-
+    
     private func squareRootFunc() {
         currentInput = sqrt(currentInput)
-        UserDefaults.standard.setСurrentInput(value: String(currentInput))
+        //        UserDefaults.standard.setСurrentInput(value: String(currentInput))
     }
-
+    
     private func addDotFunc() {
         if stillTyping && !dotIsPlace {
             dotIsPlace = true
-            labelResultDisplay.text = labelResultDisplay.text! + "."
-            UserDefaults.standard.setСurrentInput(value: labelResultDisplay.text!)
+            labelResultDisplay?.text = (labelResultDisplay?.text ?? "0") + "."
         } else if !stillTyping && !dotIsPlace {
             dotIsPlace = true
-            labelResultDisplay.text = "0."
+            labelResultDisplay?.text = "0."
             stillTyping = true
-            UserDefaults.standard.setСurrentInput(value: labelResultDisplay.text!)
         }
     }
-
+    
     private func equalFunc() {
         if stillTyping == true {
             secondOperand = currentInput
@@ -104,7 +117,7 @@ class ViewController: UIViewController {
         func operateWithTwoOperands(operation: (Double, Double) -> Double) {
             currentInput = operation(firstOperand, secondOperand)
             stillTyping = false
-            UserDefaults.standard.setСurrentInput(value: String(currentInput))
+            //            UserDefaults.standard.setСurrentInput(value: String(currentInput))
         }
         dotIsPlace = false
         switch operationSign {
@@ -115,31 +128,33 @@ class ViewController: UIViewController {
         case "×":
             operateWithTwoOperands {$0 * $1}
         case "÷":
-            operateWithTwoOperands {$0 / $1}
+            if secondOperand != 0 {
+                operateWithTwoOperands {$0 / $1}
+            } else { labelResultDisplay?.text = "Error" }
         default: break
         }
     }
-
+    
     private func getPressedOperataion() {
         firstOperand = currentInput
         stillTyping = false
         dotIsPlace = false
-        UserDefaults.standard.setСurrentInput(value: String(firstOperand))
+        //        UserDefaults.standard.setСurrentInput(value: String(firstOperand))
     }
-
+    
     private func getPressedNumber(_ number: String) {
         if stillTyping { //character limit
-            if labelResultDisplay.text!.count < 20 {
-                labelResultDisplay.text! += number
-                UserDefaults.standard.setСurrentInput(value: labelResultDisplay.text!)
+            if labelResultDisplay?.text!.count ?? 0 < 20 {
+                labelResultDisplay?.text! += number
+                //                UserDefaults.standard.setСurrentInput(value: labelResultDisplay.text!)
             }
         } else {
-            labelResultDisplay.text! = number
+            labelResultDisplay?.text! = number
             stillTyping = true
-            UserDefaults.standard.setСurrentInput(value: labelResultDisplay.text!)
+            //            UserDefaults.standard.setСurrentInput(value: labelResultDisplay.text!)
         }
     }
-
+    
     // MARK: - IBActions
     
     @IBAction func buttonNumberPressed(_ sender: UIButton) {
