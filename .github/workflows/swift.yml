@@ -1,15 +1,16 @@
-name: Swift
+name: CI
 
-on: [push]
+on: 
+  push:
+    branches:
+      - master
 
 jobs:
   build:
 
     runs-on: macOS-latest
-
+    
     steps:
-    - uses: actions/checkout@v1
-    - name: Build
-      run: swift build -v
-    - name: Run tests
-      run: swift test -v
+    - uses: actions/checkout@master
+    - name: Start xcodebuild test
+      run: xcodebuild clean test -project EasyCalculator.xcodeproj -scheme EasyCalculator -destination "platform=iOS Simulator,name=iPhone 11 Pro"
