@@ -19,18 +19,25 @@ class MindCalculator {
     var operationSign: String = ""
     var currentInput: Double {
         get {
+            if self.labelResultDisplay.text == "Error" {
+                clearFunc()
+            }
             return Double(self.labelResultDisplay.text ?? "0")!
         }
         set {
-            let value = "\(newValue)"
-            let valueArray = value.components(separatedBy: ".")
-            if valueArray[1] == "0" {
-                labelResultDisplay.text = "\(valueArray[0])"
+            if newValue.isInfinite || newValue.isNaN {
+                labelResultDisplay.text = "Error"
             } else {
-                labelResultDisplay.text = "\(newValue)"
-                dotIsPlace = true
+                let value = "\(newValue)"
+                let valueArray = value.components(separatedBy: ".")
+                if valueArray[1] == "0" {
+                    labelResultDisplay.text = "\(valueArray[0])"
+                } else {
+                    labelResultDisplay.text = "\(newValue)"
+                    dotIsPlace = true
+                }
+                stillTyping = false
             }
-            stillTyping = false
         }
     }
     
@@ -92,9 +99,6 @@ class MindCalculator {
     }
     
     func equalFunc() {
-        if stillTyping == true {
-            secondOperand = currentInput
-        }
         func operateWithTwoOperands(operation: (Double, Double) -> Double) {
             currentInput = operation(firstOperand, secondOperand)
             stillTyping = false
@@ -108,10 +112,11 @@ class MindCalculator {
         case "×":
             operateWithTwoOperands {$0 * $1}
         case "÷":
-            if secondOperand != 0 {
-                operateWithTwoOperands {$0 / $1}
-            } else { labelResultDisplay.text = "Error" }
+            operateWithTwoOperands {$0 / $1}
         default: break
+        }
+        if stillTyping == true {
+            secondOperand = currentInput
         }
     }
     
@@ -123,8 +128,8 @@ class MindCalculator {
     
     func getPressedNumber(_ number: String) {
         if stillTyping { //character limit
-            if labelResultDisplay.text!.count < 20 {
-                labelResultDisplay.text! += number
+            if labelResultDisplay.text?.count ?? 0 < 20 {
+                labelResultDisplay.text? += number
             }
         } else {
             labelResultDisplay.text = number
@@ -132,20 +137,4 @@ class MindCalculator {
         }
     }
     
-}
-
-//MARK: Extentions UserDefaults
-
-extension UserDefaults {
-    func setСurrentInput(value: String) {
-        set(value, forKey: "currentInput")
-    }
-    
-    func isCurrentInput() -> Double {
-        return double(forKey: "currentInput")
-    }
-    
-    func removeCurrentInput() {
-        removeObject(forKey: "currentInput")
-    }
 }
