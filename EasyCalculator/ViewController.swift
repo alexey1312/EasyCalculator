@@ -11,21 +11,24 @@ import UIKit
 class ViewController: UIViewController {
     
     // MARK: - Initializers
+    
     var mindCalculator: MindCalculator!
+    
+    // MARK: - Private Properties
+    
+    private let viewIdentifier = "mainView"
     
     // MARK: - IBOutlets
     
     @IBOutlet weak var labelResultDisplay: UILabel!
-    
-    // MARK: - Private Properties
-    private let viewIdentifier = "mainView"
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.accessibilityIdentifier = viewIdentifier
-        mindCalculator = MindCalculator(labelResultDisplay: labelResultDisplay)
+
+        mindCalculator = MindCalculator(labelResultDisplayText: labelResultDisplay!)
         mindCalculator.loadUserDefaultsData()
     }
     
@@ -37,7 +40,7 @@ class ViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func buttonNumberPressed(_ sender: UIButton) {
-        let number = sender.currentTitle! //get the current value numbers
+        let number = sender.currentTitle! //get the current value number
         mindCalculator.getPressedNumber(number)
     }
     
