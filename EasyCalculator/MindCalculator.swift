@@ -19,10 +19,10 @@ class MindCalculator {
     var operationSign: String = ""
     var currentInput: Double {
         get {
-            if self.labelResultDisplay.text == "Error" {
+            if labelResultDisplay.text == "Error" {
                 clearFunc()
             }
-            return Double(self.labelResultDisplay.text ?? "0")!
+            return Double(labelResultDisplay.text ?? "0")!
         }
         set {
             if newValue.isInfinite || newValue.isNaN {
@@ -99,6 +99,9 @@ class MindCalculator {
     }
     
     func equalFunc() {
+        if stillTyping == true {
+            secondOperand = currentInput
+        }
         func operateWithTwoOperands(operation: (Double, Double) -> Double) {
             currentInput = operation(firstOperand, secondOperand)
             stillTyping = false
@@ -115,9 +118,6 @@ class MindCalculator {
             operateWithTwoOperands {$0 / $1}
         default: break
         }
-        if stillTyping == true {
-            secondOperand = currentInput
-        }
     }
     
     func getPressedOperataion() {
@@ -128,8 +128,9 @@ class MindCalculator {
     
     func getPressedNumber(_ number: String) {
         if stillTyping { //character limit
-            if labelResultDisplay.text?.count ?? 0 < 20 {
-                labelResultDisplay.text? += number
+            if labelResultDisplay.text!.count < 10 {
+                labelResultDisplay.text! += number
+                stillTyping = true
             }
         } else {
             labelResultDisplay.text = number

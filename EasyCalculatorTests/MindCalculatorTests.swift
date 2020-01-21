@@ -122,7 +122,7 @@ class EasyCalculatorTests: XCTestCase {
         XCTAssertEqual(sut.labelResultDisplay.text, "0.")
     }
     
-    func testEqualFunc() {
+    func testEqualFuncSecondEqualOperand() {
         // 1. given
         sut.stillTyping = true
         
@@ -132,17 +132,26 @@ class EasyCalculatorTests: XCTestCase {
         // 3. then
         XCTAssertEqual(sut.secondOperand, sut.currentInput)
         XCTAssertTrue(!sut.dotIsPlace, "dotIsPlace value should be equal false")
+    }
+    
+    func testEqualFuncSum() {
         
         // 1. given
+        sut.stillTyping = false
         sut.firstOperand = 50
         sut.secondOperand = 50
         sut.operationSign = "+"
         
         // 2. when
+        print(sut.currentInput)
         sut.equalFunc()
+        print(sut.currentInput)
         
         // 3. then
-        XCTAssert(sut.currentInput == 100, "currentInput value should be equal 100")
+        XCTAssertEqual(sut.currentInput, 100)
+    }
+    
+    func testEqualFuncMinus() {
         
         // 1. given
         sut.firstOperand = 50
@@ -153,7 +162,10 @@ class EasyCalculatorTests: XCTestCase {
         sut.equalFunc()
         
         // 3. then
-        XCTAssert(sut.currentInput == 0, "currentInput value should be equal 0")
+        XCTAssertEqual(sut.currentInput, 0)
+    }
+    
+    func testEqualFuncMultiply() {
         
         // 1. given
         sut.firstOperand = 5
@@ -164,7 +176,10 @@ class EasyCalculatorTests: XCTestCase {
         sut.equalFunc()
         
         // 3. then
-        XCTAssert(sut.currentInput == 25, "currentInput value should be equal 25")
+        XCTAssertEqual(sut.currentInput, 25)
+    }
+    
+    func testEqualFuncDivide() {
         
         // 1. given
         sut.firstOperand = 5
@@ -175,7 +190,7 @@ class EasyCalculatorTests: XCTestCase {
         sut.equalFunc()
         
         // 3. then
-        XCTAssert(sut.currentInput == 1, "currentInput value should be equal 1")
+        XCTAssertEqual(sut.currentInput, 1)
         
         // 1. given
         sut.firstOperand = 5
@@ -204,24 +219,41 @@ class EasyCalculatorTests: XCTestCase {
         XCTAssertTrue(!sut.dotIsPlace, "dotIsPlace value should be equal false")
     }
     
-    func testGetPressedNumber() {
+    func testPressedNumber() {
         // 1. given
-        sut.stillTyping = true
+        sut.stillTyping = false
+        let number = "9919919919"
         
         // 2. when
-        sut.getPressedNumber("999999999999999999999999999999999999")
+        sut.getPressedNumber(number)
         
         // 3. then
-        XCTAssertTrue(sut.stillTyping, "stillTyping value should be equal true")
-        XCTAssertEqual(sut.labelResultDisplay.text, "9999999999999999999")
+        XCTAssertEqual(sut.labelResultDisplay.text!, "9919919919")
     }
     
-    //
-    //    func testPerformanceExample() {
-    //        // This is an example of a performance test case.
-    //        measure {
-    //            // Put the code you want to measure the time of here.
-    //        }
-    //    }
+    func testPressedNumberCharactersLessLimit() {
+        // 1. given
+        sut.stillTyping = true
+        sut.labelResultDisplay.text = "111"
+        let number = "222"
+        
+        // 2. when
+        sut.getPressedNumber(number)
+        
+        // 3. then
+        XCTAssertEqual(sut.labelResultDisplay.text!, "111222")
+    }
+    
+    func testSaveUserDefaultsData() {
+        // 1. given
+        sut.currentInput = 20
+        sut.saveUserDefaultsData()
+        
+        // 2. when
+        sut.saveUserDefaultsData()
+        
+        // 3. then
+        XCTAssertEqual(UserDefaults.standard.isCurrentInput(), 20)
+    }
     
 }
