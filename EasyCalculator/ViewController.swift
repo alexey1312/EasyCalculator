@@ -31,23 +31,23 @@ class ViewController: UIViewController {
     @IBOutlet weak var buttonsNum7: UIButton!
     @IBOutlet weak var buttonsNum8: UIButton!
     @IBOutlet weak var buttonsNum9: UIButton!
-    @IBOutlet weak var buttonsOperataionC: UIButton!
-    @IBOutlet weak var buttonsOperataionPlusMinus: UIButton!
-    @IBOutlet weak var buttonsOperataionPercent: UIButton!
-    @IBOutlet weak var buttonsOperataionSum: UIButton!
-    @IBOutlet weak var buttonsOperataionMinus: UIButton!
-    @IBOutlet weak var buttonsOperataionMultiply: UIButton!
-    @IBOutlet weak var buttonsOperataionDivide: UIButton!
-    @IBOutlet weak var buttonsOperataionEqual: UIButton!
-    @IBOutlet weak var buttonsOperataionDot: UIButton!
-    @IBOutlet weak var buttonsOperataionSquareRoot: UIButton!
+    @IBOutlet weak var buttonOperataionC: UIButton!
+    @IBOutlet weak var buttonOperataionPlusMinus: UIButton!
+    @IBOutlet weak var buttonOperataionPercent: UIButton!
+    @IBOutlet weak var buttonOperataionSum: UIButton!
+    @IBOutlet weak var buttonOperataionMinus: UIButton!
+    @IBOutlet weak var buttonOperataionMultiply: UIButton!
+    @IBOutlet weak var buttonOperataionDivide: UIButton!
+    @IBOutlet weak var buttonOperataionEqual: UIButton!
+    @IBOutlet weak var buttonOperataionDot: UIButton!
+    @IBOutlet weak var buttonOperataionSquareRoot: UIButton!
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.accessibilityIdentifier = viewIdentifier
-
+        
         mindCalculator = MindCalculator(labelResultDisplayText: labelResultDisplay!)
         mindCalculator.loadUserDefaultsData()
     }
@@ -59,13 +59,17 @@ class ViewController: UIViewController {
     
     // MARK: - IBActions
     
+    @IBAction func buttonClearPressed(_ sender: UIButton) {
+        mindCalculator.clearFunc()
+    }
+    
     @IBAction func buttonNumberPressed(_ sender: UIButton) {
-        let number = sender.currentTitle ?? "" //get the current value number
+        let number = sender.currentTitle! //get the current value number
         mindCalculator.getPressedNumber(number)
     }
     
     @IBAction func buttonOperataionPressed(_ sender: UIButton) {
-        mindCalculator.operationSign = sender.currentTitle ?? "" //get the current value operation
+        mindCalculator.operationSign = sender.currentTitle! //get the current value operation
         mindCalculator.getPressedOperataion()
     }
     
@@ -73,10 +77,6 @@ class ViewController: UIViewController {
         mindCalculator.equalFunc()
     }
     
-    @IBAction func buttonClearPressed(_ sender: UIButton) {
-        mindCalculator.clearFunc()
-    }
-
     @IBAction func buttonPlusMinusPressed(_ sender: UIButton) {
         mindCalculator.invertFunc()
     }

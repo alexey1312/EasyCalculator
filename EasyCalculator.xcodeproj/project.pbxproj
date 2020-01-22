@@ -124,25 +124,25 @@
 		84807749237878A800D0CD5F /* EasyCalculator */ = {
 			isa = PBXGroup;
 			children = (
-				84E73DF323D62A1D00BE6710 /* Support Files */,
+				84E73DF323D62A1D00BE6710 /* SupportFiles */,
 				84732AB423D478C6005C2FC4 /* MindCalculator.swift */,
 				8480774E237878A800D0CD5F /* ViewController.swift */,
 				84807750237878A800D0CD5F /* Main.storyboard */,
-				84807753237878A900D0CD5F /* Assets.xcassets */,
-				84807755237878A900D0CD5F /* LaunchScreen.storyboard */,
-				84807758237878A900D0CD5F /* Info.plist */,
 			);
 			path = EasyCalculator;
 			sourceTree = "<group>";
 		};
-		84E73DF323D62A1D00BE6710 /* Support Files */ = {
+		84E73DF323D62A1D00BE6710 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
+				84807758237878A900D0CD5F /* Info.plist */,
+				84807755237878A900D0CD5F /* LaunchScreen.storyboard */,
+				84807753237878A900D0CD5F /* Assets.xcassets */,
 				8480774A237878A800D0CD5F /* AppDelegate.swift */,
 				8480774C237878A800D0CD5F /* SceneDelegate.swift */,
 				84E73DF423D62A3A00BE6710 /* Extensions.swift */,
 			);
-			path = "Support Files";
+			path = SupportFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -538,7 +538,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = EasyCalculator/Info.plist;
+				INFOPLIST_FILE = EasyCalculator/SupportFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -557,7 +557,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = EasyCalculator/Info.plist;
+				INFOPLIST_FILE = EasyCalculator/SupportFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

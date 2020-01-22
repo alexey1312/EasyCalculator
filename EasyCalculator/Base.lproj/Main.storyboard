@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,11 +11,11 @@
             <objects>
                 <viewController storyboardIdentifier="mainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="EasyCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" minimumScaleFactor="0.20000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="4OC-8r-Ltu">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="105"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="105"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="105" id="1Z8-7T-UHq">
                                         <variation key="heightClass=compact" constant="80"/>
@@ -27,10 +26,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="utc-dS-BSh">
-                                <rect key="frame" x="0.0" y="96" width="375" height="571"/>
+                                <rect key="frame" x="0.0" y="115" width="600" height="519"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8a0-Vk-z0q">
-                                        <rect key="frame" x="1" y="1" width="92.5" height="116"/>
+                                        <rect key="frame" x="1" y="1" width="149" height="102.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
@@ -42,7 +41,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDV-FK-7Uf">
-                                        <rect key="frame" x="188" y="1" width="92.5" height="116"/>
+                                        <rect key="frame" x="300.5" y="1" width="149" height="102.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
@@ -54,7 +53,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SP4-QH-pB5">
-                                        <rect key="frame" x="281.5" y="1" width="92.5" height="116"/>
+                                        <rect key="frame" x="450.5" y="1" width="148.5" height="102.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
@@ -67,7 +66,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RbT-4k-LMA">
-                                        <rect key="frame" x="1" y="118" width="92.5" height="116"/>
+                                        <rect key="frame" x="1" y="104.5" width="149" height="102.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.37695571779999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
@@ -79,7 +78,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwA-dQ-1dD">
-                                        <rect key="frame" x="94.5" y="118" width="92.5" height="116"/>
+                                        <rect key="frame" x="151" y="104.5" width="148.5" height="102.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.37695571779999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
@@ -91,7 +90,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWk-MF-21w">
-                                        <rect key="frame" x="188" y="118" width="92.5" height="116"/>
+                                        <rect key="frame" x="300.5" y="104.5" width="149" height="102.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.37695571779999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
@@ -103,7 +102,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSC-bg-bgU">
-                                        <rect key="frame" x="281.5" y="118" width="92.5" height="116"/>
+                                        <rect key="frame" x="450.5" y="104.5" width="148.5" height="102.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
@@ -116,7 +115,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCl-IY-MwR">
-                                        <rect key="frame" x="1" y="235" width="92.5" height="116"/>
+                                        <rect key="frame" x="1" y="208" width="149" height="103"/>
                                         <color key="backgroundColor" red="0.0" green="0.37695571779999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
@@ -128,7 +127,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkI-pa-XfP">
-                                        <rect key="frame" x="94.5" y="235" width="92.5" height="116"/>
+                                        <rect key="frame" x="151" y="208" width="148.5" height="103"/>
                                         <color key="backgroundColor" red="0.0" green="0.37695571779999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
@@ -140,7 +139,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y8T-I7-WSz">
-                                        <rect key="frame" x="188" y="235" width="92.5" height="116"/>
+                                        <rect key="frame" x="300.5" y="208" width="149" height="103"/>
                                         <color key="backgroundColor" red="0.0" green="0.37695571779999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
@@ -152,7 +151,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tZ-eO-J3u">
-                                        <rect key="frame" x="281.5" y="235" width="92.5" height="116"/>
+                                        <rect key="frame" x="450.5" y="208" width="148.5" height="103"/>
                                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
@@ -165,7 +164,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJi-cL-N9p">
-                                        <rect key="frame" x="1" y="352" width="92.5" height="116"/>
+                                        <rect key="frame" x="1" y="312" width="149" height="102.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.37695571779999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
@@ -177,7 +176,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NLg-rP-KM9">
-                                        <rect key="frame" x="94.5" y="352" width="92.5" height="116"/>
+                                        <rect key="frame" x="151" y="312" width="148.5" height="102.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.37695571779999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
@@ -189,7 +188,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ni-qD-EQo">
-                                        <rect key="frame" x="188" y="352" width="92.5" height="116"/>
+                                        <rect key="frame" x="300.5" y="312" width="149" height="102.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.37695571779999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
@@ -201,7 +200,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fek-7H-ZD5">
-                                        <rect key="frame" x="281.5" y="352" width="92.5" height="116"/>
+                                        <rect key="frame" x="450.5" y="312" width="148.5" height="102.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
@@ -214,7 +213,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uFj-Zc-1F7">
-                                        <rect key="frame" x="94.5" y="469" width="92.5" height="101"/>
+                                        <rect key="frame" x="151" y="415.5" width="148.5" height="102.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
@@ -226,7 +225,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VN8-fa-R0Z">
-                                        <rect key="frame" x="188" y="469" width="92.5" height="101"/>
+                                        <rect key="frame" x="300.5" y="415.5" width="149" height="102.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
@@ -238,7 +237,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzS-lu-jY1">
-                                        <rect key="frame" x="281.5" y="469" width="92.5" height="101"/>
+                                        <rect key="frame" x="450.5" y="415.5" width="148.5" height="102.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
@@ -250,7 +249,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXh-os-1tc">
-                                        <rect key="frame" x="94.5" y="1" width="92.5" height="116"/>
+                                        <rect key="frame" x="151" y="1" width="148.5" height="102.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
@@ -262,7 +261,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gs5-St-IRG">
-                                        <rect key="frame" x="1" y="469" width="92.5" height="101"/>
+                                        <rect key="frame" x="1" y="415.5" width="149" height="102.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
@@ -409,6 +408,16 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="buttonOperataionC" destination="8a0-Vk-z0q" id="VkZ-Iu-WIA"/>
+                        <outlet property="buttonOperataionDivide" destination="fek-7H-ZD5" id="1h4-59-cJB"/>
+                        <outlet property="buttonOperataionDot" destination="VN8-fa-R0Z" id="hs5-eG-Lzo"/>
+                        <outlet property="buttonOperataionEqual" destination="RzS-lu-jY1" id="Ng8-Ym-fSj"/>
+                        <outlet property="buttonOperataionMinus" destination="hSC-bg-bgU" id="dzF-1X-DEN"/>
+                        <outlet property="buttonOperataionMultiply" destination="6tZ-eO-J3u" id="sT9-Ut-cBh"/>
+                        <outlet property="buttonOperataionPercent" destination="UDV-FK-7Uf" id="ACC-dR-gfr"/>
+                        <outlet property="buttonOperataionPlusMinus" destination="kXh-os-1tc" id="B8w-Dw-6Of"/>
+                        <outlet property="buttonOperataionSquareRoot" destination="gs5-St-IRG" id="bae-iP-DkY"/>
+                        <outlet property="buttonOperataionSum" destination="SP4-QH-pB5" id="14H-hK-iMD"/>
                         <outlet property="buttonsNum0" destination="uFj-Zc-1F7" id="35P-5a-T0E"/>
                         <outlet property="buttonsNum1" destination="vJi-cL-N9p" id="gzL-LK-moZ"/>
                         <outlet property="buttonsNum2" destination="NLg-rP-KM9" id="NQk-74-god"/>
@@ -419,16 +428,6 @@
                         <outlet property="buttonsNum7" destination="RbT-4k-LMA" id="knh-O4-tRg"/>
                         <outlet property="buttonsNum8" destination="nwA-dQ-1dD" id="r3e-74-6HO"/>
                         <outlet property="buttonsNum9" destination="ZWk-MF-21w" id="iiq-yS-WaZ"/>
-                        <outlet property="buttonsOperataionC" destination="8a0-Vk-z0q" id="VkZ-Iu-WIA"/>
-                        <outlet property="buttonsOperataionDivide" destination="fek-7H-ZD5" id="1h4-59-cJB"/>
-                        <outlet property="buttonsOperataionDot" destination="VN8-fa-R0Z" id="hs5-eG-Lzo"/>
-                        <outlet property="buttonsOperataionEqual" destination="RzS-lu-jY1" id="Ng8-Ym-fSj"/>
-                        <outlet property="buttonsOperataionMinus" destination="hSC-bg-bgU" id="dzF-1X-DEN"/>
-                        <outlet property="buttonsOperataionMultiply" destination="6tZ-eO-J3u" id="sT9-Ut-cBh"/>
-                        <outlet property="buttonsOperataionPercent" destination="UDV-FK-7Uf" id="ACC-dR-gfr"/>
-                        <outlet property="buttonsOperataionPlusMinus" destination="kXh-os-1tc" id="B8w-Dw-6Of"/>
-                        <outlet property="buttonsOperataionSquareRoot" destination="gs5-St-IRG" id="bae-iP-DkY"/>
-                        <outlet property="buttonsOperataionSum" destination="SP4-QH-pB5" id="14H-hK-iMD"/>
                         <outlet property="labelResultDisplay" destination="4OC-8r-Ltu" id="xFY-jZ-WnI"/>
                     </connections>
                 </viewController>
