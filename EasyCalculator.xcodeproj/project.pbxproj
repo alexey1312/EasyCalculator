@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8406B65C23CE2FA400D18B02 /* EasyCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8406B65B23CE2FA400D18B02 /* EasyCalculatorTests.swift */; };
+		8406B65C23CE2FA400D18B02 /* MindCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8406B65B23CE2FA400D18B02 /* MindCalculatorTests.swift */; };
+		840BB78423D7FF37006732F5 /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BB78323D7FF37006732F5 /* ViewControllerTests.swift */; };
 		84482D1523CCB224007EA03B /* EasyCalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84482D1423CCB224007EA03B /* EasyCalculatorUITests.swift */; };
+		84732AB523D478C6005C2FC4 /* MindCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84732AB423D478C6005C2FC4 /* MindCalculator.swift */; };
 		8480774B237878A800D0CD5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480774A237878A800D0CD5F /* AppDelegate.swift */; };
 		8480774D237878A800D0CD5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480774C237878A800D0CD5F /* SceneDelegate.swift */; };
 		8480774F237878A800D0CD5F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480774E237878A800D0CD5F /* ViewController.swift */; };
 		84807752237878A800D0CD5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84807750237878A800D0CD5F /* Main.storyboard */; };
 		84807754237878A900D0CD5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84807753237878A900D0CD5F /* Assets.xcassets */; };
 		84807757237878A900D0CD5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84807755237878A900D0CD5F /* LaunchScreen.storyboard */; };
+		84E73DF523D62A3A00BE6710 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E73DF423D62A3A00BE6710 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,11 +39,13 @@
 
 /* Begin PBXFileReference section */
 		8406B65923CE2FA400D18B02 /* EasyCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8406B65B23CE2FA400D18B02 /* EasyCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyCalculatorTests.swift; sourceTree = "<group>"; };
+		8406B65B23CE2FA400D18B02 /* MindCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindCalculatorTests.swift; sourceTree = "<group>"; };
 		8406B65D23CE2FA400D18B02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		840BB78323D7FF37006732F5 /* ViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
 		84482D1223CCB224007EA03B /* EasyCalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyCalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84482D1423CCB224007EA03B /* EasyCalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyCalculatorUITests.swift; sourceTree = "<group>"; };
 		84482D1623CCB224007EA03B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84732AB423D478C6005C2FC4 /* MindCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindCalculator.swift; sourceTree = "<group>"; };
 		84807747237878A800D0CD5F /* EasyCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8480774A237878A800D0CD5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8480774C237878A800D0CD5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +54,7 @@
 		84807753237878A900D0CD5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84807756237878A900D0CD5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84807758237878A900D0CD5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84E73DF423D62A3A00BE6710 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +85,8 @@
 		8406B65A23CE2FA400D18B02 /* EasyCalculatorTests */ = {
 			isa = PBXGroup;
 			children = (
-				8406B65B23CE2FA400D18B02 /* EasyCalculatorTests.swift */,
+				8406B65B23CE2FA400D18B02 /* MindCalculatorTests.swift */,
+				840BB78323D7FF37006732F5 /* ViewControllerTests.swift */,
 				8406B65D23CE2FA400D18B02 /* Info.plist */,
 			);
 			path = EasyCalculatorTests;
@@ -117,15 +124,25 @@
 		84807749237878A800D0CD5F /* EasyCalculator */ = {
 			isa = PBXGroup;
 			children = (
-				8480774A237878A800D0CD5F /* AppDelegate.swift */,
-				8480774C237878A800D0CD5F /* SceneDelegate.swift */,
+				84E73DF323D62A1D00BE6710 /* SupportFiles */,
+				84732AB423D478C6005C2FC4 /* MindCalculator.swift */,
 				8480774E237878A800D0CD5F /* ViewController.swift */,
 				84807750237878A800D0CD5F /* Main.storyboard */,
-				84807753237878A900D0CD5F /* Assets.xcassets */,
-				84807755237878A900D0CD5F /* LaunchScreen.storyboard */,
-				84807758237878A900D0CD5F /* Info.plist */,
 			);
 			path = EasyCalculator;
+			sourceTree = "<group>";
+		};
+		84E73DF323D62A1D00BE6710 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				84807758237878A900D0CD5F /* Info.plist */,
+				84807755237878A900D0CD5F /* LaunchScreen.storyboard */,
+				84807753237878A900D0CD5F /* Assets.xcassets */,
+				8480774A237878A800D0CD5F /* AppDelegate.swift */,
+				8480774C237878A800D0CD5F /* SceneDelegate.swift */,
+				84E73DF423D62A3A00BE6710 /* Extensions.swift */,
+			);
+			path = SupportFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,7 +276,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8406B65C23CE2FA400D18B02 /* EasyCalculatorTests.swift in Sources */,
+				840BB78423D7FF37006732F5 /* ViewControllerTests.swift in Sources */,
+				8406B65C23CE2FA400D18B02 /* MindCalculatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,7 +293,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84E73DF523D62A3A00BE6710 /* Extensions.swift in Sources */,
 				8480774F237878A800D0CD5F /* ViewController.swift in Sources */,
+				84732AB523D478C6005C2FC4 /* MindCalculator.swift in Sources */,
 				8480774B237878A800D0CD5F /* AppDelegate.swift in Sources */,
 				8480774D237878A800D0CD5F /* SceneDelegate.swift in Sources */,
 			);
@@ -518,7 +538,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = EasyCalculator/Info.plist;
+				INFOPLIST_FILE = EasyCalculator/SupportFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -527,7 +547,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Aleksei-Kakoulin.EasyCalculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -537,7 +557,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = EasyCalculator/Info.plist;
+				INFOPLIST_FILE = EasyCalculator/SupportFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -546,7 +566,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Aleksei-Kakoulin.EasyCalculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

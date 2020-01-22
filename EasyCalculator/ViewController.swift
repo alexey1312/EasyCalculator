@@ -10,189 +10,87 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // MARK: - Initializers
+    
+    var mindCalculator: MindCalculator!
+    
+    // MARK: - Properties
+    
+    let viewIdentifier = "mainView"
+    
     // MARK: - IBOutlets
     
-    @IBOutlet weak var labelResultDisplay: UILabel?
-    
-    // MARK: - Private Properties
-    private let viewIdentifier = "mainView"
-    private(set) var stillTyping = false
-    private(set) var dotIsPlace = false
-    private(set) var firstOperand: Double = 0
-    private(set) var secondOperand: Double = 0
-    private(set) var operationSign: String = ""
-    private(set) var currentInput: Double {
-        get {
-            return Double(labelResultDisplay?.text ?? "0")!
-        }
-        set {
-            let value = "\(newValue)"
-            let valueArray = value.components(separatedBy: ".")
-            if valueArray[1] == "0" {
-                labelResultDisplay?.text = "\(valueArray[0])"
-            } else {
-                labelResultDisplay?.text = "\(newValue)"
-                dotIsPlace = true
-            }
-            stillTyping = false
-        }
-    }
+    @IBOutlet weak var labelResultDisplay: UILabel!
+    @IBOutlet weak var buttonsNum0: UIButton!
+    @IBOutlet weak var buttonsNum1: UIButton!
+    @IBOutlet weak var buttonsNum2: UIButton!
+    @IBOutlet weak var buttonsNum3: UIButton!
+    @IBOutlet weak var buttonsNum4: UIButton!
+    @IBOutlet weak var buttonsNum5: UIButton!
+    @IBOutlet weak var buttonsNum6: UIButton!
+    @IBOutlet weak var buttonsNum7: UIButton!
+    @IBOutlet weak var buttonsNum8: UIButton!
+    @IBOutlet weak var buttonsNum9: UIButton!
+    @IBOutlet weak var buttonOperataionC: UIButton!
+    @IBOutlet weak var buttonOperataionPlusMinus: UIButton!
+    @IBOutlet weak var buttonOperataionPercent: UIButton!
+    @IBOutlet weak var buttonOperataionSum: UIButton!
+    @IBOutlet weak var buttonOperataionMinus: UIButton!
+    @IBOutlet weak var buttonOperataionMultiply: UIButton!
+    @IBOutlet weak var buttonOperataionDivide: UIButton!
+    @IBOutlet weak var buttonOperataionEqual: UIButton!
+    @IBOutlet weak var buttonOperataionDot: UIButton!
+    @IBOutlet weak var buttonOperataionSquareRoot: UIButton!
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.accessibilityIdentifier = viewIdentifier
-        loadUserDefaultsData()
+        
+        mindCalculator = MindCalculator(labelResultDisplayText: labelResultDisplay!)
+        mindCalculator.loadUserDefaultsData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        saveUserDefaultsData()
-    }
-    
-    // MARK: - Private Methods
-    
-    private func loadUserDefaultsData() {
-        currentInput = UserDefaults.standard.isCurrentInput()
-    }
-    
-    private func saveUserDefaultsData() {
-        UserDefaults.standard.setСurrentInput(value: String(currentInput))
-    }
-    
-    private func removeUserDefaultsData() {
-        UserDefaults.standard.removeCurrentInput()
-    }
-    
-    func clearFunc() {
-        firstOperand = 0
-        secondOperand = 0
-        currentInput = 0
-        stillTyping = false
-        dotIsPlace = false
-        operationSign = ""
-        removeUserDefaultsData()
-    }
-    
-    func invertFunc() {
-        currentInput = -currentInput
-    }
-    
-    func percentFunc() {
-        if firstOperand == 0 {
-            currentInput /= 100
-        } else {
-            secondOperand = firstOperand * currentInput / 100
-        }
-    }
-    
-    func squareRootFunc() {
-        currentInput = sqrt(currentInput)
-    }
-    
-    func addDotFunc() {
-        if stillTyping && !dotIsPlace {
-            dotIsPlace = true
-            labelResultDisplay?.text = (labelResultDisplay?.text ?? "0") + "."
-        } else if !stillTyping && !dotIsPlace {
-            dotIsPlace = true
-            labelResultDisplay?.text = "0."
-            stillTyping = true
-        }
-    }
-    
-    func equalFunc() {
-        if stillTyping == true {
-            secondOperand = currentInput
-        }
-        func operateWithTwoOperands(operation: (Double, Double) -> Double) {
-            currentInput = operation(firstOperand, secondOperand)
-            stillTyping = false
-        }
-        dotIsPlace = false
-        switch operationSign {
-        case "+":
-            operateWithTwoOperands {$0 + $1}
-        case "-":
-            operateWithTwoOperands {$0 - $1}
-        case "×":
-            operateWithTwoOperands {$0 * $1}
-        case "÷":
-            if secondOperand != 0 {
-                operateWithTwoOperands {$0 / $1}
-            } else { labelResultDisplay?.text = "Error" }
-        default: break
-        }
-    }
-    
-    private func getPressedOperataion() {
-        firstOperand = currentInput
-        stillTyping = false
-        dotIsPlace = false
-    }
-    
-    private func getPressedNumber(_ number: String) {
-        if stillTyping { //character limit
-            if labelResultDisplay?.text!.count ?? 0 < 20 {
-                labelResultDisplay?.text! += number
-            }
-        } else {
-            labelResultDisplay?.text! = number
-            stillTyping = true
-        }
+        mindCalculator.saveUserDefaultsData()
     }
     
     // MARK: - IBActions
     
-    @IBAction func buttonNumberPressed(_ sender: UIButton) {
-        let number = sender.currentTitle! //get the current value numbers
-        getPressedNumber(number)
+    @IBAction func buttonClearPressed(_ sender: UIButton) {
+        mindCalculator.clearFunc()
     }
     
-    @IBAction func buttonOperandsPressed(_ sender: UIButton) {
-        operationSign = sender.currentTitle! //get the current value operation
-        getPressedOperataion()
+    @IBAction func buttonNumberPressed(_ sender: UIButton) {
+        let number = sender.currentTitle! //get the current value number
+        mindCalculator.getPressedNumber(number)
+    }
+    
+    @IBAction func buttonOperataionPressed(_ sender: UIButton) {
+        mindCalculator.operationSign = sender.currentTitle! //get the current value operation
+        mindCalculator.getPressedOperataion()
     }
     
     @IBAction func buttonEqualityPressed(_ sender: UIButton) {
-        equalFunc()
-    }
-    
-    @IBAction func buttonClearPressed(_ sender: UIButton) {
-        clearFunc()
+        mindCalculator.equalFunc()
     }
     
     @IBAction func buttonPlusMinusPressed(_ sender: UIButton) {
-        invertFunc()
+        mindCalculator.invertFunc()
     }
     
     @IBAction func buttonPercentPressed(_ sender: UIButton) {
-        percentFunc()
+        mindCalculator.percentFunc()
     }
     
     @IBAction func buttonSquareRootPressed(_ sender: UIButton) {
-        squareRootFunc()
+        mindCalculator.squareRootFunc()
     }
     
     @IBAction func buttonDotPressed(_ sender: UIButton) {
-        addDotFunc()
+        mindCalculator.addDotFunc()
     }
     
-}
-
-//MARK: Extentions UserDefaults
-
-extension UserDefaults {
-    func setСurrentInput(value: String) {
-        set(value, forKey: "currentInput")
-    }
-    
-    func isCurrentInput() -> Double {
-        return double(forKey: "currentInput")
-    }
-    
-    func removeCurrentInput() {
-        removeObject(forKey: "currentInput")
-    }
 }
