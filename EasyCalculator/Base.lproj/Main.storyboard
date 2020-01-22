@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="EasyCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="EasyCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,7 +63,7 @@
                                         </state>
                                         <connections>
                                             <action selector="buttonEqualityPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o91-g5-oPp"/>
-                                            <action selector="buttonOperandsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Nx-Yj-rex"/>
+                                            <action selector="buttonOperataionPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Nx-Yj-rex"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RbT-4k-LMA">
@@ -112,7 +112,7 @@
                                         </state>
                                         <connections>
                                             <action selector="buttonEqualityPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sGo-d7-j6w"/>
-                                            <action selector="buttonOperandsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="won-sK-5oQ"/>
+                                            <action selector="buttonOperataionPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="won-sK-5oQ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCl-IY-MwR">
@@ -161,7 +161,7 @@
                                         </state>
                                         <connections>
                                             <action selector="buttonEqualityPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mP9-ov-lIZ"/>
-                                            <action selector="buttonOperandsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lrI-O7-Plh"/>
+                                            <action selector="buttonOperataionPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lrI-O7-Plh"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJi-cL-N9p">
@@ -210,7 +210,7 @@
                                         </state>
                                         <connections>
                                             <action selector="buttonEqualityPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ouk-4r-u3u"/>
-                                            <action selector="buttonOperandsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cwb-RN-u0v"/>
+                                            <action selector="buttonOperataionPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cwb-RN-u0v"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uFj-Zc-1F7">
@@ -409,6 +409,26 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="buttonsNum0" destination="uFj-Zc-1F7" id="35P-5a-T0E"/>
+                        <outlet property="buttonsNum1" destination="vJi-cL-N9p" id="gzL-LK-moZ"/>
+                        <outlet property="buttonsNum2" destination="NLg-rP-KM9" id="NQk-74-god"/>
+                        <outlet property="buttonsNum3" destination="8ni-qD-EQo" id="qH8-Sv-tfx"/>
+                        <outlet property="buttonsNum4" destination="eCl-IY-MwR" id="PsA-6g-MzF"/>
+                        <outlet property="buttonsNum5" destination="pkI-pa-XfP" id="mdb-WD-ldx"/>
+                        <outlet property="buttonsNum6" destination="y8T-I7-WSz" id="tDS-n3-8fT"/>
+                        <outlet property="buttonsNum7" destination="RbT-4k-LMA" id="knh-O4-tRg"/>
+                        <outlet property="buttonsNum8" destination="nwA-dQ-1dD" id="r3e-74-6HO"/>
+                        <outlet property="buttonsNum9" destination="ZWk-MF-21w" id="iiq-yS-WaZ"/>
+                        <outlet property="buttonsOperataionC" destination="8a0-Vk-z0q" id="VkZ-Iu-WIA"/>
+                        <outlet property="buttonsOperataionDivide" destination="fek-7H-ZD5" id="1h4-59-cJB"/>
+                        <outlet property="buttonsOperataionDot" destination="VN8-fa-R0Z" id="hs5-eG-Lzo"/>
+                        <outlet property="buttonsOperataionEqual" destination="RzS-lu-jY1" id="Ng8-Ym-fSj"/>
+                        <outlet property="buttonsOperataionMinus" destination="hSC-bg-bgU" id="dzF-1X-DEN"/>
+                        <outlet property="buttonsOperataionMultiply" destination="6tZ-eO-J3u" id="sT9-Ut-cBh"/>
+                        <outlet property="buttonsOperataionPercent" destination="UDV-FK-7Uf" id="ACC-dR-gfr"/>
+                        <outlet property="buttonsOperataionPlusMinus" destination="kXh-os-1tc" id="B8w-Dw-6Of"/>
+                        <outlet property="buttonsOperataionSquareRoot" destination="gs5-St-IRG" id="bae-iP-DkY"/>
+                        <outlet property="buttonsOperataionSum" destination="SP4-QH-pB5" id="14H-hK-iMD"/>
                         <outlet property="labelResultDisplay" destination="4OC-8r-Ltu" id="xFY-jZ-WnI"/>
                     </connections>
                 </viewController>

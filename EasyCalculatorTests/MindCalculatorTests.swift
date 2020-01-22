@@ -9,12 +9,13 @@
 import XCTest
 @testable import EasyCalculator
 
-class EasyCalculatorTests: XCTestCase {
+class MindCalculatorTests: XCTestCase {
     
     var sut: MindCalculator!
     
     override func setUp() {
         super.setUp()
+        
         let labelResultDisplayText = UILabel()
         sut = MindCalculator(labelResultDisplayText: labelResultDisplayText) //system under test
     }

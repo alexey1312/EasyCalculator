@@ -14,13 +14,33 @@ class ViewController: UIViewController {
     
     var mindCalculator: MindCalculator!
     
-    // MARK: - Private Properties
+    // MARK: - Properties
     
-    private let viewIdentifier = "mainView"
+    let viewIdentifier = "mainView"
     
     // MARK: - IBOutlets
     
     @IBOutlet weak var labelResultDisplay: UILabel!
+    @IBOutlet weak var buttonsNum0: UIButton!
+    @IBOutlet weak var buttonsNum1: UIButton!
+    @IBOutlet weak var buttonsNum2: UIButton!
+    @IBOutlet weak var buttonsNum3: UIButton!
+    @IBOutlet weak var buttonsNum4: UIButton!
+    @IBOutlet weak var buttonsNum5: UIButton!
+    @IBOutlet weak var buttonsNum6: UIButton!
+    @IBOutlet weak var buttonsNum7: UIButton!
+    @IBOutlet weak var buttonsNum8: UIButton!
+    @IBOutlet weak var buttonsNum9: UIButton!
+    @IBOutlet weak var buttonsOperataionC: UIButton!
+    @IBOutlet weak var buttonsOperataionPlusMinus: UIButton!
+    @IBOutlet weak var buttonsOperataionPercent: UIButton!
+    @IBOutlet weak var buttonsOperataionSum: UIButton!
+    @IBOutlet weak var buttonsOperataionMinus: UIButton!
+    @IBOutlet weak var buttonsOperataionMultiply: UIButton!
+    @IBOutlet weak var buttonsOperataionDivide: UIButton!
+    @IBOutlet weak var buttonsOperataionEqual: UIButton!
+    @IBOutlet weak var buttonsOperataionDot: UIButton!
+    @IBOutlet weak var buttonsOperataionSquareRoot: UIButton!
     
     // MARK: - Lifecycle
     
@@ -40,12 +60,12 @@ class ViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func buttonNumberPressed(_ sender: UIButton) {
-        let number = sender.currentTitle! //get the current value number
+        let number = sender.currentTitle ?? "" //get the current value number
         mindCalculator.getPressedNumber(number)
     }
     
-    @IBAction func buttonOperandsPressed(_ sender: UIButton) {
-        mindCalculator.operationSign = sender.currentTitle! //get the current value operation
+    @IBAction func buttonOperataionPressed(_ sender: UIButton) {
+        mindCalculator.operationSign = sender.currentTitle ?? "" //get the current value operation
         mindCalculator.getPressedOperataion()
     }
     
@@ -56,7 +76,7 @@ class ViewController: UIViewController {
     @IBAction func buttonClearPressed(_ sender: UIButton) {
         mindCalculator.clearFunc()
     }
-    
+
     @IBAction func buttonPlusMinusPressed(_ sender: UIButton) {
         mindCalculator.invertFunc()
     }
